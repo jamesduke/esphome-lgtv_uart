@@ -6,8 +6,11 @@ esphome:
   name: $devicename
   platform: ESP8266
   board: d1_mini
-  includes:
-    - lgtv_uart.h
+
+external_components:
+  - source:
+      type: local
+      path: lgtv_uart_external
 
 wifi:
   ssid: !secret router_ssid
@@ -34,14 +37,10 @@ uart:
   rx_pin: D4
     
 binary_sensor:
-  - platform: custom
-    lambda: |-
-      auto lgtv_uart = new LGTVUARTComponent(id(uart_bus));
-      App.register_component(lgtv_uart);
-      return {lgtv_uart};
-    binary_sensors:
-      name: "${upper_devicename} Power state"
-      id: power
+  - platform: lgtv_uart_external
+    name: "${upper_devicename} Power state"
+    id: power
+    uart_id: uart_bus
 
 switch:
   - platform: template
