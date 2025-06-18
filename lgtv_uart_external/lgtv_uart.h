@@ -1,3 +1,6 @@
+#ifndef LGTV_UART_H
+#define LGTV_UART_H
+
 #include "esphome.h"
 
 #define LGTV_BUFFER_LEN   64
@@ -40,3 +43,5 @@ class LGTVUARTComponent : public Component, public UARTDevice, public BinarySens
 
 	}
 };
+
+#endif // LGTV_UART_H
