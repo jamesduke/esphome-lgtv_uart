@@ -10,7 +10,7 @@ esphome:
 external_components:
   - source:
       type: local
-      path: lgtv_uart_external
+      path: components/lgtv_uart_external
 
 wifi:
   ssid: !secret router_ssid
