@@ -10,7 +10,7 @@ esphome:
 external_components:
   - source:
       type: local
-      path: components/lgtv_uart_external
+      path: components
 
 wifi:
   ssid: !secret router_ssid
@@ -35,12 +35,11 @@ uart:
   baud_rate: 9600
   tx_pin: D3
   rx_pin: D4
-    
-binary_sensor:
-  - platform: lgtv_uart_external
-    name: "${upper_devicename} Power state"
-    id: power
-    uart_id: uart_bus
+
+lgtv_uart_external:
+  name: "${upper_devicename} Power state"
+  id: power
+  uart_id: uart_bus
 
 switch:
   - platform: template
