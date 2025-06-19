@@ -2,7 +2,7 @@
 #define LGTV_UART_H
 
 #include "esphome.h"
-#include "esphome/components/uart/uart_device.h"
+#include "esphome/components/uart/uart.h"
 #include "esphome/components/binary_sensor/binary_sensor.h"
 
 #define LGTV_BUFFER_LEN   64
