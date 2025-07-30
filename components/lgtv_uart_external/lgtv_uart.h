@@ -1,19 +1,20 @@
-#ifndef LGTV_UART_H
-#define LGTV_UART_H
-
-#include "esphome.h"
+#include "esphome/core/component.h"
 #include "esphome/components/uart/uart.h"
 #include "esphome/components/binary_sensor/binary_sensor.h"
+#include "esphome/core/log.h"
+
+namespace esphome {
+namespace lgtv_uart {
 
 #define LGTV_BUFFER_LEN   64
 
-class LGTVUARTComponent : public Component, public UARTDevice, public BinarySensor {
+class LGTVUARTComponent : public esphome::Component, public esphome::uart::UARTDevice, public esphome::binary_sensor::BinarySensor {
   protected:
 	uint8_t uart_buffer[LGTV_BUFFER_LEN]{0};
 	int offset = 0;
 	
   public:
-	LGTVUARTComponent(UARTComponent *parent) : UARTDevice(parent) {}
+	LGTVUARTComponent(esphome::uart::UARTComponent *parent) : UARTDevice(parent) {}
 
 	void setup() override {
 	// nothing to do here
@@ -46,4 +47,5 @@ class LGTVUARTComponent : public Component, public UARTDevice, public BinarySens
 	}
 };
 
-#endif // LGTV_UART_H
+}  // namespace lgtv_uart
+}  // namespace esphome
