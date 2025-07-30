@@ -9,7 +9,7 @@ LGTVUARTComponent = lgtv_uart_ns.class_("LGTVUARTComponent", binary_sensor.Binar
 
 CONFIG_SCHEMA = (
     binary_sensor.binary_sensor_schema(LGTVUARTComponent)
-    .extend(uart.uart_device_schema)
+    .extend(uart.UART_DEVICE_SCHEMA)
 )
 
 async def to_code(config):
